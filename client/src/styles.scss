@@ -79,8 +79,13 @@ form {
     padding: 4px 36px 4px 40px;
   }
 
+  .InputGroup {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
   input {
-    width: 100px;
+    width: 175px;
   }
 }
 
