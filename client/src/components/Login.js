@@ -3,11 +3,14 @@ import Axios from 'axios';
 
 const Login = (props) => {
   const api_uri = 'http://localhost:5000/api';
+
   const [credentials, setCredentials] = useState({ username: "", password: "" });
+
   useEffect(() => {
     console.log(`Login: credentials`, credentials);
   }, [credentials]);
-  
+
+  //Debug Testing
   useEffect(() => {
     setCredentials({ username: "Lambda School", password: "i<3Lambd4" });
   }, []);
@@ -21,14 +24,12 @@ const Login = (props) => {
     e.preventDefault();
 
     Axios
-    .post(api_uri+'/login', credentials)
-
+    .post(`${api_uri}/login`, credentials)
     .then(res => {
       console.log(`Login: login -> res`, res);
       localStorage.setItem('token', res.data.payload);
       props.history.push('/bubblepage');
     })
-
     .catch(err => {
       console.log(`Login: login -> err`, err);
     });
